@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Legenda: support</title>
+<meta name="description" content="Help with Legenda for iPhone: setup, captions, translation, sharing, supported languages, offline use and contact details.">
+<link rel="canonical" href="https://legendas.johannesklumpe.com/support.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23fcfcfa'/%3E%3Cpath d='M6 13v6m5-11v16m5-20v24m5-20v16m5-11v6' fill='none' stroke='%231b1b19' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#fcfcfa;--ink:#1b1b19;--mut:#5d5c57;--rule:#d9d8d2;--box:#f3f2ed;--link:#1d5fb4;--blue:#2a78d6;color-scheme:light dark;--sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+@media(prefers-color-scheme:dark){:root{--bg:#171716;--ink:#ecebe6;--mut:#a9a8a0;--rule:#3b3b38;--box:#222220;--link:#8ab8f2;--blue:#3987e5}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0 auto;max-width:43rem;padding:0 16px 3rem;background:var(--bg);color:var(--ink);font:16px/1.5 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif}
+a{color:var(--link);text-underline-offset:2px}
+header{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--rule);font-size:13px;color:var(--mut)}
+header svg{width:17px;height:20px;vertical-align:-5px;margin-right:6px;fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round}
+header b{color:var(--ink);letter-spacing:.08em}
+h1{font-size:1.75rem;line-height:1.15;margin:1.6rem 0 .5rem}
+.by{font:13px var(--sans);color:var(--mut);margin:0 0 1.2rem}
+h2{font-size:1.12rem;line-height:1.3;margin:2.2rem 0 .5rem;padding-top:.7rem;border-top:1px solid var(--rule)}
+h2 small{display:block;font:600 11px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:2px}
+p{margin:.55rem 0}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:3px 14px;margin:1rem 0;padding:10px 12px;background:var(--box);border-radius:6px;font-size:13.5px}
+.facts dt{color:var(--mut)}
+.facts dd{margin:0;min-width:0}
+.cap,figcaption{font-size:13px;color:var(--mut);margin:.4rem 0}
+.cap b,figcaption b{color:var(--ink)}
+ul{padding-left:1.2rem;margin:.5rem 0}
+li{margin:.25rem 0}
+footer{margin-top:2.5rem;padding-top:.8rem;border-top:1px solid var(--rule);font-size:13px;color:var(--mut)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+header,footer,.cap,.facts{font-family:var(--sans)}
+header b a{color:inherit;text-decoration:none}
+ol{padding-left:1.2rem;margin:.5rem 0}
+@media(max-width:30rem){.facts{gap:3px 10px}}
+@media(min-width:40rem){body{font-size:17px}h1{font-size:2.1rem}}
+</style>
+</head>
+<body>
+<header>
+<span><svg viewBox="0 0 24 28" aria-hidden="true"><path d="M2 11v6m5-11v16m5-20v24m5-20v16m5-11v6"/></svg><b><a href="./">LEGENDA</a></b></span>
+<span>Live transcription · On device</span>
+</header>
+<main>
+<h1>Legenda: support</h1>
+<p class="by">Last updated 22 November 2026.</p>
+<p>Your iPhone writes down what is said around it, while it is said. A translation appears below when you want one. Speech recognition and translation run on the phone.</p>
+
+<h2><small>1 Before you start</small>Requirements</h2>
+<dl class="facts">
+<dt>Device</dt><dd>iPhone with iOS 26 or later</dd>
+<dt>Download</dt><dd>A network connection and space for about 630 MB of speech model files, plus about 2 MB for voice detection. The prepared model and translation language files need more space.</dd>
+<dt>Preparation</dt><dd>A few minutes to prepare the speech model on first start</dd>
+<dt>Tested hardware</dt><dd>Tested so far only on Apple's latest A-series chip, the A20 Pro</dd>
+</dl>
+
+<h2><small>2 Setup</small>First start</h2>
+<ol>
+<li>Open Legenda with a network connection. The screen says <b>Setting up Legenda on this iPhone</b>. Let <b>Download the speech model</b> finish.</li>
+<li>Wait for <b>Prepare it for the Neural Engine</b>. This can take several minutes.</li>
+<li>Keep the app open, or tap <b>Continue in background</b> when it appears. If you leave the app, open it again to finish the first test.</li>
+<li>Allow microphone access when iOS asks. This happens after model preparation.</li>
+<li>Speak near the phone. The app shows <b>Listening</b> and displays captions.</li>
+</ol>
+
+<h2><small>3 Common questions</small>Setup seems stuck at preparation</h2>
+<p>Preparation can take several minutes, especially for the encoder. Keep Legenda open to finish setup. The phone can get warm during this work.</p>
+
+<h2><small>Common questions</small>Why does the app prepare the model again after an update?</h2>
+<p>An update can require preparation again. The app may show <b>Optimizing the speech model for this update</b>. Complete downloaded models are reused.</p>
+
+<h2><small>Common questions</small>Why do no captions appear?</h2>
+<p>Allow microphone access for Legenda in iOS Settings. If the app shows <b>Paused</b>, tap the play button to continue. Speak closer to the phone in one of the six supported languages listed below.</p>
+
+<h2><small>Common questions</small>How do I translate and change the target language?</h2>
+<p>Tap <b>Translate</b> to show translation below the captions. Tap the target language name above the translation to choose another target language. iOS downloads a language pair the first time you need it if it is not already installed.</p>
+
+<h2><small>Common questions</small>How do I read earlier lines and return to Live?</h2>
+<p>Scroll up to read earlier captions; new captions keep your reading position. Tap <b>Live</b> or scroll to the bottom to follow new captions again. Translation scrolls independently and has its own <b>Live translation</b> button.</p>
+
+<h2><small>Common questions</small>How do I share, copy or clear the transcript?</h2>
+<p>Open the Share menu and choose <b>Share transcript</b> or <b>Copy transcript</b>. The transcript contains captions, not the translation. Tap the trash button, labelled <b>Clear</b>, then confirm <b>Clear</b> in <b>Clear transcript and translation?</b> to clear both.</p>
+
+<h2><small>Common questions</small>Does it work without a network?</h2>
+<p>Yes, captions work without a network once the speech model and voice detection model are installed. Translation works without a network once the needed language pair is installed. First setup, missing model files and new translation language pairs need a network connection.</p>
+
+<h2><small>Common questions</small>Which languages are supported?</h2>
+<p>The six supported languages are English, French, German, Italian, Portuguese and Spanish. The app detects the spoken language for each finalized caption. The same six languages are available as the target language.</p>
+
+<h2><small>Common questions</small>Why does the phone get warm or use battery?</h2>
+<p>Speech recognition runs on the phone while it listens, so the phone can get warm and use battery. The app adjusts recognition frequency when iOS reports high heat. Tap Pause when you do not need captions.</p>
+
+<h2><small>Common questions</small>How do I delete everything?</h2>
+<p>Delete the app to remove its downloaded models and local settings. There is no account to delete. Copies of the transcript or diagnostic log that you saved elsewhere remain there.</p>
+
+<h2><small>4 Privacy</small>Your data</h2>
+<p>Read the <a href="privacy.html">privacy policy</a> for microphone use, transcript handling and setup downloads.</p>
+
+<h2><small>5 Contact</small>Contact</h2>
+<p>Questions and problems: Johannes Klumpe, <a href="mailto:johannesklumpe@gmail.com">johannesklumpe@gmail.com</a>. Replies usually come within a few days.</p>
+</main>
+<footer>Built and maintained by Johannes · © 2026 Legenda · <a href="privacy.html">Privacy</a> · <a href="support.html">Support</a> · <a href="./">Main page</a></footer>
+</body>
+</html>

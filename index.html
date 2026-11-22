@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Legenda: live transcription that runs on your iPhone</title>
-<meta name="description" content="Live transcription on your iPhone, with optional translation. Read back and share the transcript. Speech recognition and translation run on the phone. Offline after setup. Private beta.">
+<meta name="description" content="Live transcription on your iPhone, with optional translation. Read back and share the transcript. Speech recognition and translation run on the phone. Offline after setup.">
 <meta property="og:title" content="Legenda: live transcription that runs on your iPhone">
 <meta property="og:description" content="Your iPhone writes down what is said around it, while it is said. Read back and share the transcript. Speech recognition and optional translation run on the phone. Offline after setup.">
 <meta property="og:type" content="website">
@@ -88,7 +88,7 @@ footer{margin-top:2.5rem;padding-top:.8rem;border-top:1px solid var(--rule);font
 <dt>Input</dt><dd>The iPhone microphone</dd>
 <dt>Output</dt><dd>Live captions, optional translation, plain-text transcript</dd>
 <dt>Network</dt><dd>Needed for setup and new translation pairs; offline afterwards</dd>
-<dt>Status</dt><dd>Private beta on TestFlight. Not on the App Store yet.</dd>
+<dt>Status</dt><dd>Version 1.0, in preparation for the App Store</dd>
 </dl>
 <nav aria-label="Contents">
 <a href="#premise">1 Premise</a><a href="#captions">2 Live transcription</a><a href="#history">3 Earlier lines</a><a href="#notes">4 Transcript</a><a href="#offline">5 On device</a><a href="#control">6 Sharing</a><a href="#languages">7 Six languages</a><a href="#limits">8 Reading aid</a><a href="#status">9 Status</a>
@@ -130,7 +130,7 @@ footer{margin-top:2.5rem;padding-top:.8rem;border-top:1px solid var(--rule);font
 <p>Translation works on finalized caption lines. A line ends at a pause or at a length limit, so it can end in the middle of a sentence. The translation therefore trails the caption. It can also wait for a language download or for earlier lines. A line already in the target language appears unchanged. The screen stays awake while the app listens.</p>
 <figure>
 <div class="shots" tabindex="0" role="group" aria-label="Caption and translation screenshots, scroll sideways">
-<a href="images/captions-portrait.webp"><img src="images/captions-portrait.webp" width="540" height="1174" loading="lazy" alt="Portrait captions in Portuguese, English and German on black, with Pause, Share and Translate controls below"><span>(a) Captions</span></a>
+<a href="images/captions-portrait.webp"><img src="images/captions-portrait.webp" width="540" height="1174" loading="lazy" alt="Portrait captions in Portuguese, English and German on black, with Pause, Share, Clear and Translate controls below"><span>(a) Captions</span></a>
 <a href="images/captions-translation-portrait.webp"><img src="images/captions-translation-portrait.webp" width="540" height="1174" loading="lazy" alt="Split portrait screen with white captions above an English target menu and yellow English translations below"><span>(b) Translation</span></a>
 <a href="images/target-menu-portrait.webp"><img src="images/target-menu-portrait.webp" width="540" height="1174" loading="lazy" alt="Target language menu with English selected, followed by French, German, Italian, Portuguese and Spanish"><span>(c) Target language</span></a>
 </div>
@@ -150,9 +150,9 @@ footer{margin-top:2.5rem;padding-top:.8rem;border-top:1px solid var(--rule);font
 <p class="cap"><b>Table 2.</b> The scroll rule is the same in portrait and landscape. Display history is limited to the most recent 200 caption lines; the export has a separate limit.</p>
 <figure>
 <div class="shots landscape">
-<a href="images/captions-translation-landscape.webp"><img src="images/captions-translation-landscape.webp" width="1080" height="497" loading="lazy" alt="Landscape view with toolbar at the top, German and Portuguese captions above, and a yellow English translation below"><span>Landscape · captions and translation</span></a>
+<a href="images/history-landscape.webp"><img src="images/history-landscape.webp" width="1080" height="497" loading="lazy" alt="Landscape view with the toolbar at the top, numbered demo captions scrolled back, and a Live button at the lower right"><span>Landscape · earlier lines and the Live button</span></a>
 </div>
-<figcaption><b>Fig. 3.</b> The two panes in landscape. The toolbar moves to the top. This demo shows the live view; Table 2 describes reading back.</figcaption>
+<figcaption><b>Fig. 3.</b> Reading earlier lines in landscape. The toolbar moves to the top. The Live button returns to the newest line.</figcaption>
 </figure>
 
 <h2 id="notes"><small>4 Claim 3</small>The transcript is the notes</h2>
@@ -186,8 +186,8 @@ footer{margin-top:2.5rem;padding-top:.8rem;border-top:1px solid var(--rule);font
 <h2 id="control"><small>6 Claim 5</small>You decide what leaves the phone</h2>
 <p>There is no account, no sign-in and no server of ours. The app has no analytics or crash-reporting SDK. Its own network code fetches model files and setup metadata. It does not upload the conversation.</p>
 <p>Audio is processed in memory and is not saved. The transcript also lives in memory. It is lost when the app process closes unless you have shared or copied it elsewhere. Switching away from the app is not the same as closing its process.</p>
-<p>One exception is explicit. A hidden diagnostics panel has the action <b>Export log (includes captions)</b>. It writes a temporary text file with diagnostic events and caption text, and opens the share sheet for it. This happens only when you tap it. The app never saves a session by itself.</p>
-<p>Pause and continue use one button. Sharing the transcript, copying it, and exporting a diagnostic log are your actions. Tell the people at the table that your phone is captioning the conversation.</p>
+<p>One exception is explicit. A hidden diagnostics panel has the action <b>Export log (includes captions)</b>. It writes a text file with diagnostic events and caption text to the app's temporary storage, and opens the share sheet for it. This happens only when you tap it. The file can remain in temporary storage afterwards, and Clear does not erase the diagnostic log. The app never saves a session by itself.</p>
+<p>Pause and continue use one button. The Clear button empties the captions and the translation after you confirm. Sharing the transcript, copying it, and exporting a diagnostic log are your actions. Tell the people at the table that your phone is captioning the conversation.</p>
 <figure>
 <div class="shots single">
 <a href="images/paused-portrait.webp"><img src="images/paused-portrait.webp" width="540" height="1174" loading="lazy" alt="Caption screen paused, with existing Portuguese, English and German text still visible and a play control to continue"><span>Pause, then continue</span></a>
@@ -241,10 +241,10 @@ footer{margin-top:2.5rem;padding-top:.8rem;border-top:1px solid var(--rule);font
 <li><b>Maintenance.</b> One person builds it.</li>
 </ul>
 
-<h2 id="status"><small>9 Status</small>Legenda is in private beta</h2>
-<p>Legenda is in private beta on TestFlight. It is not on the App Store yet.</p>
+<h2 id="status"><small>9 Status</small>Version 1.0 is on its way to the App Store</h2>
+<p>Version 1.0 is in preparation for the App Store. This page will link to it when it is available.</p>
 <p class="cap" id="fn1">1. On a physical iPhone, Legenda has so far been tested only with Apple's latest A-series chip, the A20 Pro. All phone measurements on this page come from one phone with that chip. Other iPhone chips have not been measured.</p>
 </main>
-<footer>Built and maintained by Johannes · © 2026 Legenda</footer>
+<footer>Built and maintained by Johannes · © 2026 Legenda · <a href="privacy.html">Privacy</a> · <a href="support.html">Support</a></footer>
 </body>
 </html>

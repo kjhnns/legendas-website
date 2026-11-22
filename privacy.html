@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Legenda: privacy policy</title>
+<meta name="description" content="Privacy policy for the Legenda iPhone app, named Legendas on the App Store. Microphone use, captions, setup downloads and contact details.">
+<link rel="canonical" href="https://legendas.johannesklumpe.com/privacy.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23fcfcfa'/%3E%3Cpath d='M6 13v6m5-11v16m5-20v24m5-20v16m5-11v6' fill='none' stroke='%231b1b19' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#fcfcfa;--ink:#1b1b19;--mut:#5d5c57;--rule:#d9d8d2;--box:#f3f2ed;--link:#1d5fb4;--blue:#2a78d6;color-scheme:light dark;--sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+@media(prefers-color-scheme:dark){:root{--bg:#171716;--ink:#ecebe6;--mut:#a9a8a0;--rule:#3b3b38;--box:#222220;--link:#8ab8f2;--blue:#3987e5}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0 auto;max-width:43rem;padding:0 16px 3rem;background:var(--bg);color:var(--ink);font:16px/1.5 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif}
+a{color:var(--link);text-underline-offset:2px}
+header{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--rule);font-size:13px;color:var(--mut)}
+header svg{width:17px;height:20px;vertical-align:-5px;margin-right:6px;fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round}
+header b{color:var(--ink);letter-spacing:.08em}
+h1{font-size:1.75rem;line-height:1.15;margin:1.6rem 0 .5rem}
+.by{font:13px var(--sans);color:var(--mut);margin:0 0 1.2rem}
+h2{font-size:1.12rem;line-height:1.3;margin:2.2rem 0 .5rem;padding-top:.7rem;border-top:1px solid var(--rule)}
+h2 small{display:block;font:600 11px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:2px}
+p{margin:.55rem 0}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:3px 14px;margin:1rem 0;padding:10px 12px;background:var(--box);border-radius:6px;font-size:13.5px}
+.facts dt{color:var(--mut)}
+.facts dd{margin:0;min-width:0}
+.cap,figcaption{font-size:13px;color:var(--mut);margin:.4rem 0}
+.cap b,figcaption b{color:var(--ink)}
+ul{padding-left:1.2rem;margin:.5rem 0}
+li{margin:.25rem 0}
+footer{margin-top:2.5rem;padding-top:.8rem;border-top:1px solid var(--rule);font-size:13px;color:var(--mut)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+header,footer,.cap,.facts{font-family:var(--sans)}
+header b a{color:inherit;text-decoration:none}
+ol{padding-left:1.2rem;margin:.5rem 0}
+@media(max-width:30rem){.facts{gap:3px 10px}}
+@media(min-width:40rem){body{font-size:17px}h1{font-size:2.1rem}}
+</style>
+</head>
+<body>
+<header>
+<span><svg viewBox="0 0 24 28" aria-hidden="true"><path d="M2 11v6m5-11v16m5-20v24m5-20v16m5-11v6"/></svg><b><a href="./">LEGENDA</a></b></span>
+<span>Live transcription · On device</span>
+</header>
+<main>
+<h1>Legenda: privacy policy</h1>
+<p class="by">Last updated 22 November 2026. Applies to the Legenda iPhone app (App Store name: Legendas).</p>
+<p>Legenda does not upload your audio or your captions by itself. You can share or copy the transcript, or export a diagnostic log that contains caption text. The developer runs no server for this app. There is no account, no analytics, no advertising and no tracking. Speech recognition and translation run on your iPhone. Section 4 describes the network requests.</p>
+
+<h2><small>1 About</small>Who runs this app</h2>
+<p>Legenda is a personal project of Johannes Klumpe, Zurich, Switzerland.</p>
+
+<h2><small>2 Audio</small>Microphone</h2>
+<p>The app uses the microphone only while it listens. Audio is processed in memory on the phone. It is not saved and not sent anywhere.</p>
+
+<h2><small>3 Text</small>Captions and transcript</h2>
+<p>Captions and the transcript exist in the app's memory. The app does not save a session. The live transcript is lost when the app process closes.</p>
+<p>Text leaves the app only when you act: <b>Share transcript</b>, <b>Copy transcript</b>, or <b>Export log (includes captions)</b> in the hidden diagnostics panel. The diagnostic log includes caption text, timing, and model and cache diagnostics with local file paths. Exporting it writes a file to the app's temporary storage for the share sheet. That file can remain there afterwards. Clear removes the transcript and the translation. It does not erase diagnostic-log entries or an exported file.</p>
+<p>The app stores downloaded models, preparation information and your settings on the phone.</p>
+
+<h2><small>4 Downloads</small>Network requests</h2>
+<ol>
+<li><b>Setup.</b> On first start, the app downloads the speech model (about 630 MB) and the voice detection model (about 2 MB). The open-source FluidAudio library performs these downloads from Hugging Face (huggingface.co). The app's own code also requests the file list of the speech model from Hugging Face. As with any download, the download provider receives your IP address and standard request data. Its privacy policy applies to these requests. The app's own request and the app's calls to the downloader carry no account, no token and no identifier of the app's own.</li>
+<li><b>Translation.</b> Apple's Translation framework runs on the device. If a language pair is not installed, iOS downloads it from Apple the first time you need it. That download is done by iOS under Apple's privacy policy.</li>
+<li><b>After setup.</b> The app's own code makes no other network request. With the speech model, voice detection model and needed translation language pairs installed, captions and translation work without a network. Missing model files or new translation language pairs need a download.</li>
+</ol>
+
+<h2><small>5 Apple</small>System reports</h2>
+<p>If you agreed to share analytics with app developers in the iOS settings, Apple provides the developer with crash reports and aggregated usage statistics. If you use a TestFlight build, Apple provides the developer with crash reports and the feedback you choose to send. The app adds no analytics or crash-reporting service.</p>
+
+<h2><small>6 Access</small>Permissions</h2>
+<p>The app requests microphone permission only. It does not use the camera, contacts, photos, calendar, location or health data.</p>
+
+<h2><small>7 Conversations</small>Other people</h2>
+<p>The app transcribes what the microphone hears. Tell the people present. You are responsible for following the rules on recording and transcribing conversations where you are.</p>
+
+<h2><small>8 Audience</small>Children</h2>
+<p>The app is not directed at children.</p>
+
+<h2><small>9 Updates</small>Changes</h2>
+<p>This page shows the current policy and its date.</p>
+
+<h2><small>10 Contact</small>Contact</h2>
+<p>Johannes Klumpe, <a href="mailto:johannesklumpe@gmail.com">johannesklumpe@gmail.com</a>.</p>
+</main>
+<footer>Built and maintained by Johannes · © 2026 Legenda · <a href="privacy.html">Privacy</a> · <a href="support.html">Support</a> · <a href="./">Main page</a></footer>
+</body>
+</html>
