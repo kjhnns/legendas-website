@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Legenda: subtitles for the conversation you are in</title>
-<meta name="description" content="Live captions and optional translation on your iPhone. Read back, share the transcript, and keep the conversation on your phone. Offline after setup. Private beta.">
-<meta property="og:title" content="Legenda: subtitles for the conversation you are in">
-<meta property="og:description" content="Follow a conversation, read back a missed line, and take the transcript with you. Captions and translation run on the iPhone. Offline after setup.">
+<title>Legenda: live transcription that runs on your iPhone</title>
+<meta name="description" content="Live transcription on your iPhone, with optional translation. Read back and share the transcript. Speech recognition and translation run on the phone. Offline after setup. Private beta.">
+<meta property="og:title" content="Legenda: live transcription that runs on your iPhone">
+<meta property="og:description" content="Your iPhone writes down what is said around it, while it is said. Read back and share the transcript. Speech recognition and optional translation run on the phone. Offline after setup.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://legendas.johannesklumpe.com/">
 <link rel="canonical" href="https://legendas.johannesklumpe.com/">
@@ -76,37 +76,37 @@ footer{margin-top:2.5rem;padding-top:.8rem;border-top:1px solid var(--rule);font
 <body>
 <header>
 <span><svg viewBox="0 0 24 28" aria-hidden="true"><path d="M2 11v6m5-11v16m5-20v24m5-20v16m5-11v6"/></svg><b>LEGENDA</b></span>
-<span>Captions · Translation</span>
+<span>Live transcription · On device</span>
 </header>
 <main>
-<h1>Legenda: subtitles for the conversation you are in</h1>
-<p class="deck">A missed word should not cost you the next sentence. Put your iPhone on the table. Read what is said, with a translation below when you want one.</p>
+<h1>Legenda: live transcription that runs on your iPhone</h1>
+<p class="deck">Your iPhone writes down what is said around it, while it is said. A translation appears below when you want one. Speech recognition and translation run on the phone.</p>
 <p class="by"><a href="https://johannesklumpe.com">Johannes Klumpe</a> · Technical note · November 2026</p>
-<p class="abstract"><b>Abstract.</b> In a language you are still learning, a live conversation can move faster than you can follow. Asking for a repeat interrupts it. Guessing risks an error. Staying silent means dropping out. Legenda puts live captions on the table, with optional translation. You can read back, then return to the live line. The transcript becomes your notes. After setup, speech recognition and translation run offline on the iPhone. You control what leaves it. Six languages can share one conversation. This note sets out the evidence and the limits.</p>
+<p class="abstract"><b>Abstract.</b> Legenda is live transcription on the iPhone. The phone writes down what is said around it and shows the words as captions, with an optional translation below. You can read earlier captions, then return to the live line. The transcript becomes your notes. After setup, speech recognition and translation run on the phone, without a network. The app does not upload the conversation. Text leaves the app only when you share it, copy it or export a diagnostic log. Six languages can share one conversation. This note sets out the evidence and the limits.</p>
 <dl class="facts">
-<dt>Runs on</dt><dd>iPhone · iOS 26 or later · portrait and landscape</dd>
-<dt>Device tested</dt><dd>iPhone 18 Pro only</dd>
+<dt>Runs on</dt><dd>iPhone · iOS 26 or later · portrait and landscape<sup><a href="#fn1">1</a></sup></dd>
 <dt>Input</dt><dd>The iPhone microphone</dd>
 <dt>Output</dt><dd>Live captions, optional translation, plain-text transcript</dd>
 <dt>Network</dt><dd>Needed for setup and new translation pairs; offline afterwards</dd>
 <dt>Status</dt><dd>Private beta on TestFlight. Not on the App Store yet.</dd>
 </dl>
 <nav aria-label="Contents">
-<a href="#premise">1 Premise</a><a href="#captions">2 Captions</a><a href="#history">3 Read back</a><a href="#notes">4 Notes</a><a href="#offline">5 Offline</a><a href="#control">6 Control</a><a href="#languages">7 Languages</a><a href="#limits">8 Limits</a><a href="#status">9 Status</a>
+<a href="#premise">1 Premise</a><a href="#captions">2 Live transcription</a><a href="#history">3 Earlier lines</a><a href="#notes">4 Transcript</a><a href="#offline">5 On device</a><a href="#control">6 Sharing</a><a href="#languages">7 Six languages</a><a href="#limits">8 Reading aid</a><a href="#status">9 Status</a>
 </nav>
 
-<h2 id="premise"><small>1 Premise</small>Every way of recovering a missed word has a cost</h2>
-<p>A non-native speaker has to understand the sentence and keep a place in the conversation. Losing one word can make the next sentence harder to follow. The usual repairs ask something of the speaker or the listener.</p>
+<h2 id="premise"><small>1 Premise</small>A live transcript keeps speech readable</h2>
+<p>Speech is gone once it is said. Text stays. Live captions on the table keep the last minutes readable.</p>
 <div class="scroll" tabindex="0"><table>
-<thead><tr><th scope="col">Response</th><th scope="col">What it gives you</th><th scope="col">What it costs</th></tr></thead>
+<thead><tr><th scope="col">Use</th><th scope="col">What Legenda does</th><th scope="col">Section</th></tr></thead>
 <tbody>
-<tr><th scope="row">Ask for a repeat</th><td>Another chance to hear the words</td><td>The conversation stops for the repair</td></tr>
-<tr><th scope="row">Guess</th><td>A way to keep going</td><td>A wrong word can change the meaning</td></tr>
-<tr><th scope="row">Stay silent</th><td>Time to listen</td><td>You lose your part in the exchange</td></tr>
-<tr><th scope="row">Read Legenda</th><td>Captions beside the conversation</td><td>A glance at the phone; captions can be wrong</td></tr>
+<tr><th scope="row">Notes from a meeting, a lecture or an interview</th><td>Share or copy the transcript as plain text.</td><td><a href="#notes">4 Transcript</a></td></tr>
+<tr><th scope="row">A sentence you did not catch</th><td>Noise, a fast speaker, a moment of distraction: scroll up and read the earlier captions. Tap Live to return.</td><td><a href="#history">3 Earlier lines</a></td></tr>
+<tr><th scope="row">A language you are still learning</th><td>Captions in the spoken language, with an optional translation below.</td><td><a href="#captions">2 Live transcription</a></td></tr>
+<tr><th scope="row">A table where people mix languages</th><td>Six languages, detected per finalized caption line.</td><td><a href="#languages">7 Six languages</a></td></tr>
 </tbody></table></div>
-<p class="cap"><b>Table 1.</b> Common responses to a missed word. These are tradeoffs, not a claim that every conversation follows the same pattern.</p>
-<p>Legenda adds a written path back into the conversation. The name is the Portuguese word for subtitle. The app on the phone is called <b>Legenda</b>.</p>
+<p class="cap"><b>Table 1.</b> What people use a live transcript for.</p>
+<p>Legenda runs the speech model and the translation on the phone. Fig. 1 shows the path.</p>
+<p>The app is called <b>Legenda</b>, the Portuguese word for subtitle.</p>
 <figure>
 <div class="flow" role="group" aria-label="Conversation processing after setup. Sound from the room enters the iPhone microphone. Voice detection and the speech model produce captions. Optional translation and captions appear on screen. Sharing, copying and exporting a diagnostic log are explicit user actions. Only they make conversation text available outside the app.">
 <p>Room: people talking</p>
@@ -125,7 +125,7 @@ footer{margin-top:2.5rem;padding-top:.8rem;border-top:1px solid var(--rule);font
 <figcaption><b>Fig. 1.</b> The conversation path after setup. Every processing box is inside the iPhone. The outgoing arrow is your choice to share. Copying the transcript is also explicit. Setup downloads are described in section 5.</figcaption>
 </figure>
 
-<h2 id="captions"><small>2 Claim 1</small>You can follow the words without asking the speaker to stop</h2>
+<h2 id="captions"><small>2 Claim 1</small>Speech becomes text while it is spoken</h2>
 <p>The phone lies on the table and listens through its microphone. Captions show what is said. Turn on <b>Translate</b> to split the screen: captions above, translation below in yellow. One menu selects the target language.</p>
 <p>Translation works on finalized caption lines. A line ends at a pause or at a length limit, so it can end in the middle of a sentence. The translation therefore trails the caption. It can also wait for a language download or for earlier lines. A line already in the target language appears unchanged. The screen stays awake while the app listens.</p>
 <figure>
@@ -136,9 +136,9 @@ footer{margin-top:2.5rem;padding-top:.8rem;border-top:1px solid var(--rule);font
 </div>
 <figcaption><b>Fig. 2.</b> Captions alone, optional translation, and the target language menu. All screenshots on this page show demo text. Tap an image to enlarge it.</figcaption>
 </figure>
-<p>In the author's field logs from one iPhone 18 Pro, a recognition pass took about <b>0.2 to 0.3 seconds</b>. Captions updated about every <b>1.5 seconds</b>. A pass time measures recognition work, not the delay from speaking a word to seeing it.</p>
+<p>In the author's field logs from the phone used for development, a recognition pass took about <b>0.2 to 0.3 seconds</b>.<sup><a href="#fn1">1</a></sup> Captions updated about every <b>1.5 seconds</b>. A pass time measures recognition work, not the delay from speaking a word to seeing it.</p>
 
-<h2 id="history"><small>3 Claim 2</small>A missed line stays within reach</h2>
+<h2 id="history"><small>3 Claim 2</small>Earlier lines stay within reach</h2>
 <p>Scroll up to read again what was said a minute ago. New lines do not pull you back while you read older captions. Tap <b>Live</b>, or scroll to the bottom, to return to the live line. Each pane scrolls on its own.</p>
 <div class="scroll" tabindex="0"><table>
 <thead><tr><th scope="col">Your action</th><th scope="col">What the view does</th></tr></thead>
@@ -165,7 +165,7 @@ footer{margin-top:2.5rem;padding-top:.8rem;border-top:1px solid var(--rule);font
 <figcaption><b>Fig. 4.</b> The transcript enters the standard iOS share sheet. This demo device shows Copy and Save to Files; destinations depend on the apps available on your phone.</figcaption>
 </figure>
 
-<h2 id="offline"><small>5 Claim 4</small>The conversation runs offline after setup</h2>
+<h2 id="offline"><small>5 Claim 4</small>Everything runs on the phone after setup</h2>
 <p>Speech recognition uses NVIDIA Parakeet, the FluidInference/parakeet-ultra-coreml build, through the open-source FluidAudio library. It runs on the iPhone's Apple Neural Engine. Silero VAD detects voice activity. Apple's Translation framework translates on the device.</p>
 <p>First start needs a network connection. Setup downloads about <b>630 MB</b> for the speech model from Hugging Face, plus about <b>2 MB</b> for voice detection. It then prepares the speech model for the Neural Engine. iOS downloads a translation language pair the first time that pair is needed. With these assets installed, captions and translation work in airplane mode.</p>
 <figure>
@@ -181,9 +181,9 @@ footer{margin-top:2.5rem;padding-top:.8rem;border-top:1px solid var(--rule);font
 <tr><th scope="row">Later starts</th><td>About 4 seconds</td></tr>
 <tr><th scope="row">Preparation after an update</th><td>1 minute 39 seconds in one observation</td></tr>
 </tbody></table></div>
-<p class="cap"><b>Table 3.</b> Observations from the author's field logs on one iPhone 18 Pro. Preparation is roughly 2 to 5 minutes, separate from the download. An app update can require preparation again. These are observations, not timing guarantees.</p>
+<p class="cap"><b>Table 3.</b> Observations from the author's field logs.<sup><a href="#fn1">1</a></sup> Preparation is roughly 2 to 5 minutes, separate from the download. An app update can require preparation again. These are observations, not timing guarantees.</p>
 
-<h2 id="control"><small>6 Claim 5</small>You decide when the conversation leaves the phone</h2>
+<h2 id="control"><small>6 Claim 5</small>You decide what leaves the phone</h2>
 <p>There is no account, no sign-in and no server of ours. The app has no analytics or crash-reporting SDK. Its own network code fetches model files and setup metadata. It does not upload the conversation.</p>
 <p>Audio is processed in memory and is not saved. The transcript also lives in memory. It is lost when the app process closes unless you have shared or copied it elsewhere. Switching away from the app is not the same as closing its process.</p>
 <p>One exception is explicit. A hidden diagnostics panel has the action <b>Export log (includes captions)</b>. It writes a temporary text file with diagnostic events and caption text, and opens the share sheet for it. This happens only when you tap it. The app never saves a session by itself.</p>
@@ -229,20 +229,21 @@ footer{margin-top:2.5rem;padding-top:.8rem;border-top:1px solid var(--rule);font
 </figure>
 <p>A separate, small test used synthetic speech with mixed languages. In <b>29 of 37 checks</b> the expected English word was present in the recognized text. The test checks that the word is present, not where it stands. It is indicative only. Names and loanwords can be wrong.</p>
 
-<h2 id="limits"><small>8 Limits</small>The captions remain a reading aid</h2>
+<h2 id="limits"><small>8 Limits</small>Legenda is a reading aid</h2>
 <ul>
-<li><b>Hardware.</b> iPhone only, with iOS 26 or later. It needs a recent iPhone. Development and device measurements used one iPhone 18 Pro; other iPhones have not been measured by us.</li>
+<li><b>Hardware.</b> iPhone only, with iOS 26 or later. Tested on one chip so far.<sup><a href="#fn1">1</a></sup></li>
 <li><b>Setup.</b> First start needs a network connection and several minutes. New translation pairs need a download. An update can trigger model preparation again.</li>
 <li><b>Accuracy.</b> There are six supported languages. In the Mac test, noise raised word error rate from 3.55% to 7.64% for Portuguese, 3.74% to 11.35% for German, and 5.11% to 6.71% for English. Names and loanwords can be wrong.</li>
 <li><b>Speakers.</b> Legenda does not say who is speaking.</li>
 <li><b>Translation.</b> It works on finalized caption lines, not word by word, so it trails the captions.</li>
-<li><b>Heat and battery.</b> The Neural Engine works throughout listening. The phone gets warm and uses battery. The author's iPhone 18 Pro field logs showed the thermal state “serious” in long sessions; the app then decodes less often. Running memory use was about 1.3 GB on that device.</li>
+<li><b>Heat and battery.</b> The Neural Engine works throughout listening. The phone gets warm and uses battery. The author's field logs showed the thermal state “serious” in long sessions; the app then decodes less often. Running memory use was about 1.3 GB.<sup><a href="#fn1">1</a></sup></li>
 <li><b>Use.</b> Captions are a reading aid, not a certified record. Tell the people at the table that the phone is captioning them.</li>
 <li><b>Maintenance.</b> One person builds it.</li>
 </ul>
 
 <h2 id="status"><small>9 Status</small>Legenda is in private beta</h2>
 <p>Legenda is in private beta on TestFlight. It is not on the App Store yet.</p>
+<p class="cap" id="fn1">1. On a physical iPhone, Legenda has so far been tested only with Apple's latest A-series chip, the A20 Pro. All phone measurements on this page come from one phone with that chip. Other iPhone chips have not been measured.</p>
 </main>
 <footer>Built and maintained by Johannes · © 2026 Legenda</footer>
 </body>
