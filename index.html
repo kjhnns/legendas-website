@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Legenda: subtitles for the conversation you are in</title>
+<meta name="description" content="Live captions and optional translation on your iPhone. Read back, share the transcript, and keep the conversation on your phone. Offline after setup. Private beta.">
+<meta property="og:title" content="Legenda: subtitles for the conversation you are in">
+<meta property="og:description" content="Follow a conversation, read back a missed line, and take the transcript with you. Captions and translation run on the iPhone. Offline after setup.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://legendas.johannesklumpe.com/">
+<link rel="canonical" href="https://legendas.johannesklumpe.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23fcfcfa'/%3E%3Cpath d='M6 13v6m5-11v16m5-20v24m5-20v16m5-11v6' fill='none' stroke='%231b1b19' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#fcfcfa;--ink:#1b1b19;--mut:#5d5c57;--rule:#d9d8d2;--box:#f3f2ed;--link:#1d5fb4;--blue:#2a78d6;color-scheme:light dark;--sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+@media(prefers-color-scheme:dark){:root{--bg:#171716;--ink:#ecebe6;--mut:#a9a8a0;--rule:#3b3b38;--box:#222220;--link:#8ab8f2;--blue:#3987e5}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0 auto;max-width:43rem;padding:0 16px 3rem;background:var(--bg);color:var(--ink);font:16px/1.5 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif}
+a{color:var(--link);text-underline-offset:2px}
+header,footer,nav,table,figcaption,.cap,.facts,.flow,.shots span{font-family:var(--sans)}
+header{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--rule);font-size:13px;color:var(--mut)}
+header svg{width:17px;height:20px;vertical-align:-5px;margin-right:6px;fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round}
+header b{color:var(--ink);letter-spacing:.08em}
+h1{font-size:1.75rem;line-height:1.15;margin:1.6rem 0 .5rem}
+.deck{font-size:1.08rem;margin:0 0 .6rem}
+.by{font:13px var(--sans);color:var(--mut);margin:0 0 1.2rem}
+h2{font-size:1.12rem;line-height:1.3;margin:2.2rem 0 .5rem;padding-top:.7rem;border-top:1px solid var(--rule)}
+h2 small{display:block;font:600 11px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:2px}
+p{margin:.55rem 0}
+.abstract{border-left:3px solid var(--ink);padding-left:12px;margin:1rem 0}
+.abstract b:first-child{font:600 11px var(--sans);letter-spacing:.1em;text-transform:uppercase}
+nav{display:flex;flex-wrap:wrap;gap:2px 12px;font-size:13px}
+nav a{white-space:nowrap}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:3px 14px;margin:1rem 0;padding:10px 12px;background:var(--box);border-radius:6px;font-size:13.5px}
+.facts dt{color:var(--mut)}
+.facts dd{margin:0;min-width:0}
+.scroll{overflow-x:auto;margin:.8rem 0}
+table{width:100%;border-collapse:collapse;font-size:13.5px;line-height:1.35}
+thead{border-top:2px solid var(--ink);border-bottom:1px solid var(--ink)}
+tbody{border-bottom:2px solid var(--ink)}
+th,td{text-align:left;vertical-align:top;padding:5px 10px 5px 0}
+tbody tr+tr{border-top:1px solid var(--rule)}
+td:last-child,th:last-child{padding-right:0}
+.cap,figcaption{font-size:13px;color:var(--mut);margin:.4rem 0}
+.cap b,figcaption b{color:var(--ink)}
+figure{margin:1.1rem 0}
+.shots{display:grid;grid-auto-flow:column;grid-auto-columns:70%;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:4px}
+.shots a{scroll-snap-align:start;text-decoration:none}
+.shots img{display:block;width:100%;height:auto;border:1px solid var(--rule);border-radius:14px}
+.shots span{display:block;font-size:12px;color:var(--mut);margin-top:4px}
+.shots.single{grid-auto-columns:min(56%,13.5rem)}
+.shots.landscape{grid-auto-flow:row;grid-template-columns:minmax(0,1fr);grid-auto-columns:auto}
+.flow{display:grid;gap:4px;font-size:13px;text-align:center}
+.flow div{display:flex;gap:6px}
+.flow span{flex:1;padding:8px 6px;border:1px solid var(--ink);border-radius:6px;background:var(--bg)}
+.flow i{font-style:normal;color:var(--mut);font-size:12px}
+.flow p{margin:2px 0}
+.flow .device{display:grid;gap:4px;min-width:0;padding:8px 12px 12px;border:2px solid var(--ink);border-radius:12px;background:var(--box)}
+.flow #device-title{font-weight:600;text-align:left;margin:0 0 4px}
+.flow .exit{justify-self:center;border-left:1px solid var(--ink);padding:3px 10px}
+.chart{display:block;width:100%;max-width:30rem;height:auto}
+.chart text{font:10px var(--sans);fill:var(--mut);paint-order:stroke;stroke:var(--bg);stroke-width:3px;stroke-linejoin:round}
+.chart .g{stroke:var(--rule)}
+.chart .bar{fill:var(--blue)}
+.chart .k{fill:var(--ink)}
+ul{padding-left:1.2rem;margin:.5rem 0}
+li{margin:.25rem 0}
+footer{margin-top:2.5rem;padding-top:.8rem;border-top:1px solid var(--rule);font-size:13px;color:var(--mut)}
+@media(max-width:30rem){table{font-size:12.5px}th,td{padding-right:8px}.facts{gap:3px 10px}.flow .device{padding:8px}}
+@media(max-width:23.5rem){table{font-size:12px}th,td{padding-right:6px}}
+@media(min-width:40rem){body{font-size:17px}h1{font-size:2.1rem}.shots{grid-auto-columns:31%}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+<span><svg viewBox="0 0 24 28" aria-hidden="true"><path d="M2 11v6m5-11v16m5-20v24m5-20v16m5-11v6"/></svg><b>LEGENDA</b></span>
+<span>Captions · Translation</span>
+</header>
+<main>
+<h1>Legenda: subtitles for the conversation you are in</h1>
+<p class="deck">A missed word should not cost you the next sentence. Put your iPhone on the table. Read what is said, with a translation below when you want one.</p>
+<p class="by"><a href="https://johannesklumpe.com">Johannes Klumpe</a> · Technical note · November 2026</p>
+<p class="abstract"><b>Abstract.</b> In a language you are still learning, a live conversation can move faster than you can follow. Asking for a repeat interrupts it. Guessing risks an error. Staying silent means dropping out. Legenda puts live captions on the table, with optional translation. You can read back, then return to the live line. The transcript becomes your notes. After setup, speech recognition and translation run offline on the iPhone. You control what leaves it. Six languages can share one conversation. This note sets out the evidence and the limits.</p>
+<dl class="facts">
+<dt>Runs on</dt><dd>iPhone · iOS 26 or later · portrait and landscape</dd>
+<dt>Device tested</dt><dd>iPhone 18 Pro only</dd>
+<dt>Input</dt><dd>The iPhone microphone</dd>
+<dt>Output</dt><dd>Live captions, optional translation, plain-text transcript</dd>
+<dt>Network</dt><dd>Needed for setup and new translation pairs; offline afterwards</dd>
+<dt>Status</dt><dd>Private beta on TestFlight. Not on the App Store yet.</dd>
+</dl>
+<nav aria-label="Contents">
+<a href="#premise">1 Premise</a><a href="#captions">2 Captions</a><a href="#history">3 Read back</a><a href="#notes">4 Notes</a><a href="#offline">5 Offline</a><a href="#control">6 Control</a><a href="#languages">7 Languages</a><a href="#limits">8 Limits</a><a href="#status">9 Status</a>
+</nav>
+
+<h2 id="premise"><small>1 Premise</small>Every way of recovering a missed word has a cost</h2>
+<p>A non-native speaker has to understand the sentence and keep a place in the conversation. Losing one word can make the next sentence harder to follow. The usual repairs ask something of the speaker or the listener.</p>
+<div class="scroll" tabindex="0"><table>
+<thead><tr><th scope="col">Response</th><th scope="col">What it gives you</th><th scope="col">What it costs</th></tr></thead>
+<tbody>
+<tr><th scope="row">Ask for a repeat</th><td>Another chance to hear the words</td><td>The conversation stops for the repair</td></tr>
+<tr><th scope="row">Guess</th><td>A way to keep going</td><td>A wrong word can change the meaning</td></tr>
+<tr><th scope="row">Stay silent</th><td>Time to listen</td><td>You lose your part in the exchange</td></tr>
+<tr><th scope="row">Read Legenda</th><td>Captions beside the conversation</td><td>A glance at the phone; captions can be wrong</td></tr>
+</tbody></table></div>
+<p class="cap"><b>Table 1.</b> Common responses to a missed word. These are tradeoffs, not a claim that every conversation follows the same pattern.</p>
+<p>Legenda adds a written path back into the conversation. The name is the Portuguese word for subtitle. The app on the phone is called <b>Legenda</b>.</p>
+<figure>
+<div class="flow" role="group" aria-label="Conversation processing after setup. Sound from the room enters the iPhone microphone. Voice detection and the speech model produce captions. Optional translation and captions appear on screen. Sharing, copying and exporting a diagnostic log are explicit user actions. Only they make conversation text available outside the app.">
+<p>Room: people talking</p>
+<i>↓ sound enters</i>
+<div class="device" role="group" aria-labelledby="device-title"><p id="device-title">iPhone · processing after setup</p>
+<div><span>Microphone</span></div><i>↓ audio in memory</i>
+<div><span>Voice detection · Silero VAD</span></div><i>↓ speech</i>
+<div><span>Speech model · Parakeet on the Neural Engine</span></div><i>↓ text</i>
+<div><span>Captions</span></div><i>↓ optional</i>
+<div><span>Translation · Apple Translation</span></div><i>↓</i>
+<div><span>Screen · captions, plus translation when enabled</span></div>
+</div>
+<p class="exit">↓ Share · only when you tap it</p>
+<p>Your chosen app receives the transcript</p>
+</div>
+<figcaption><b>Fig. 1.</b> The conversation path after setup. Every processing box is inside the iPhone. The outgoing arrow is your choice to share. Copying the transcript is also explicit. Setup downloads are described in section 5.</figcaption>
+</figure>
+
+<h2 id="captions"><small>2 Claim 1</small>You can follow the words without asking the speaker to stop</h2>
+<p>The phone lies on the table and listens through its microphone. Captions show what is said. Turn on <b>Translate</b> to split the screen: captions above, translation below in yellow. One menu selects the target language.</p>
+<p>Translation works on finalized caption lines. A line ends at a pause or at a length limit, so it can end in the middle of a sentence. The translation therefore trails the caption. It can also wait for a language download or for earlier lines. A line already in the target language appears unchanged. The screen stays awake while the app listens.</p>
+<figure>
+<div class="shots" tabindex="0" role="group" aria-label="Caption and translation screenshots, scroll sideways">
+<a href="images/captions-portrait.webp"><img src="images/captions-portrait.webp" width="540" height="1174" loading="lazy" alt="Portrait captions in Portuguese, English and German on black, with Pause, Share and Translate controls below"><span>(a) Captions</span></a>
+<a href="images/captions-translation-portrait.webp"><img src="images/captions-translation-portrait.webp" width="540" height="1174" loading="lazy" alt="Split portrait screen with white captions above an English target menu and yellow English translations below"><span>(b) Translation</span></a>
+<a href="images/target-menu-portrait.webp"><img src="images/target-menu-portrait.webp" width="540" height="1174" loading="lazy" alt="Target language menu with English selected, followed by French, German, Italian, Portuguese and Spanish"><span>(c) Target language</span></a>
+</div>
+<figcaption><b>Fig. 2.</b> Captions alone, optional translation, and the target language menu. All screenshots on this page show demo text. Tap an image to enlarge it.</figcaption>
+</figure>
+<p>In the author's field logs from one iPhone 18 Pro, a recognition pass took about <b>0.2 to 0.3 seconds</b>. Captions updated about every <b>1.5 seconds</b>. A pass time measures recognition work, not the delay from speaking a word to seeing it.</p>
+
+<h2 id="history"><small>3 Claim 2</small>A missed line stays within reach</h2>
+<p>Scroll up to read again what was said a minute ago. New lines do not pull you back while you read older captions. Tap <b>Live</b>, or scroll to the bottom, to return to the live line. Each pane scrolls on its own.</p>
+<div class="scroll" tabindex="0"><table>
+<thead><tr><th scope="col">Your action</th><th scope="col">What the view does</th></tr></thead>
+<tbody>
+<tr><th scope="row">Read older captions</th><td>Keeps your place as new captions arrive</td></tr>
+<tr><th scope="row">Read older translation</th><td>Scrolls independently of the captions</td></tr>
+<tr><th scope="row">Return to Live</th><td>Follows the newest line again</td></tr>
+</tbody></table></div>
+<p class="cap"><b>Table 2.</b> The scroll rule is the same in portrait and landscape. Display history is limited to the most recent 200 caption lines; the export has a separate limit.</p>
+<figure>
+<div class="shots landscape">
+<a href="images/captions-translation-landscape.webp"><img src="images/captions-translation-landscape.webp" width="1080" height="497" loading="lazy" alt="Landscape view with toolbar at the top, German and Portuguese captions above, and a yellow English translation below"><span>Landscape · captions and translation</span></a>
+</div>
+<figcaption><b>Fig. 3.</b> The two panes in landscape. The toolbar moves to the top. This demo shows the live view; Table 2 describes reading back.</figcaption>
+</figure>
+
+<h2 id="notes"><small>4 Claim 3</small>The transcript is the notes</h2>
+<p>You do not have to write the words down again. <b>Share transcript</b> opens the iOS share sheet for Notes, Files, Mail or another app that accepts text. <b>Copy transcript</b> puts the same text on the clipboard.</p>
+<p>The transcript contains the captions, not the translation. It is plain text, one line per caption line. It retains up to the most recent <b>20,000 finalized lines</b>, plus the current unfinished line when you export. If older lines have been dropped, the export says so.</p>
+<figure>
+<div class="shots single">
+<a href="images/share-portrait.webp"><img src="images/share-portrait.webp" width="540" height="1174" loading="lazy" alt="iOS share sheet for a Portuguese caption, showing Reminders, More, Copy and Save to Files"><span>Share transcript</span></a>
+</div>
+<figcaption><b>Fig. 4.</b> The transcript enters the standard iOS share sheet. This demo device shows Copy and Save to Files; destinations depend on the apps available on your phone.</figcaption>
+</figure>
+
+<h2 id="offline"><small>5 Claim 4</small>The conversation runs offline after setup</h2>
+<p>Speech recognition uses NVIDIA Parakeet, the FluidInference/parakeet-ultra-coreml build, through the open-source FluidAudio library. It runs on the iPhone's Apple Neural Engine. Silero VAD detects voice activity. Apple's Translation framework translates on the device.</p>
+<p>First start needs a network connection. Setup downloads about <b>630 MB</b> for the speech model from Hugging Face, plus about <b>2 MB</b> for voice detection. It then prepares the speech model for the Neural Engine. iOS downloads a translation language pair the first time that pair is needed. With these assets installed, captions and translation work in airplane mode.</p>
+<figure>
+<div class="shots single">
+<a href="images/setup-download-portrait.webp"><img src="images/setup-download-portrait.webp" width="540" height="1174" loading="lazy" alt="Setting up Legenda: step 1 downloads the speech model at 42 percent, 265 of 630 MB; step 2 prepares it for the Neural Engine"><span>Download, then prepare</span></a>
+</div>
+<figcaption><b>Fig. 5.</b> First-run setup. The 42% progress and 265 of 630 MB are demo values, not a timed download test.</figcaption>
+</figure>
+<div class="scroll" tabindex="0"><table>
+<thead><tr><th scope="col">Stage</th><th scope="col">Observed time</th></tr></thead>
+<tbody>
+<tr><th scope="row">First preparation</th><td>1 minute 50 seconds and 5 minutes 10 seconds</td></tr>
+<tr><th scope="row">Later starts</th><td>About 4 seconds</td></tr>
+<tr><th scope="row">Preparation after an update</th><td>1 minute 39 seconds in one observation</td></tr>
+</tbody></table></div>
+<p class="cap"><b>Table 3.</b> Observations from the author's field logs on one iPhone 18 Pro. Preparation is roughly 2 to 5 minutes, separate from the download. An app update can require preparation again. These are observations, not timing guarantees.</p>
+
+<h2 id="control"><small>6 Claim 5</small>You decide when the conversation leaves the phone</h2>
+<p>There is no account, no sign-in and no server of ours. The app has no analytics or crash-reporting SDK. Its own network code fetches model files and setup metadata. It does not upload the conversation.</p>
+<p>Audio is processed in memory and is not saved. The transcript also lives in memory. It is lost when the app process closes unless you have shared or copied it elsewhere. Switching away from the app is not the same as closing its process.</p>
+<p>One exception is explicit. A hidden diagnostics panel has the action <b>Export log (includes captions)</b>. It writes a temporary text file with diagnostic events and caption text, and opens the share sheet for it. This happens only when you tap it. The app never saves a session by itself.</p>
+<p>Pause and continue use one button. Sharing the transcript, copying it, and exporting a diagnostic log are your actions. Tell the people at the table that your phone is captioning the conversation.</p>
+<figure>
+<div class="shots single">
+<a href="images/paused-portrait.webp"><img src="images/paused-portrait.webp" width="540" height="1174" loading="lazy" alt="Caption screen paused, with existing Portuguese, English and German text still visible and a play control to continue"><span>Pause, then continue</span></a>
+</div>
+<figcaption><b>Fig. 6.</b> Pausing leaves the captions available to read. The play control continues listening.</figcaption>
+</figure>
+
+<h2 id="languages"><small>7 Claim 6</small>Six languages can share one conversation</h2>
+<p>Legenda detects the spoken language automatically for each finalized caption line. People can mix Portuguese, English, German, Spanish, French and Italian in one conversation. The same six languages are available as the target language.</p>
+<div class="scroll" tabindex="0"><table>
+<thead><tr><th scope="col">Language</th><th scope="col">Captions</th><th scope="col">Target language</th><th scope="col">Our speech test</th></tr></thead>
+<tbody>
+<tr><th scope="row">Portuguese</th><td>Yes</td><td>Yes</td><td>100 utterances per condition</td></tr>
+<tr><th scope="row">English</th><td>Yes</td><td>Yes</td><td>100 utterances per condition</td></tr>
+<tr><th scope="row">German</th><td>Yes</td><td>Yes</td><td>100 utterances per condition</td></tr>
+<tr><th scope="row">Spanish</th><td>Yes</td><td>Yes</td><td>Not measured by us</td></tr>
+<tr><th scope="row">French</th><td>Yes</td><td>Yes</td><td>Not measured by us</td></tr>
+<tr><th scope="row">Italian</th><td>Yes</td><td>Yes</td><td>Not measured by us</td></tr>
+</tbody></table></div>
+<p class="cap"><b>Table 4.</b> Supported languages and test coverage. The speech test measures recognition, not translation quality.</p>
+<p>The speech model was tested on FLEURS read speech: 100 utterances each in Brazilian Portuguese, German and US English. The noisy condition adds babble at <b>10 dB signal-to-noise ratio</b> and reverberation to the same utterances. Word error rate counts substitutions, deletions and insertions relative to the reference words. Lower is better.</p>
+<figure>
+<svg class="chart" viewBox="0 0 420 228" role="img" aria-label="Word error rates for Parakeet Ultra on the Neural Engine of a Mac mini M4, whole utterances from FLEURS, 100 per language per condition. Portuguese: clean 3.55 percent, noisy 7.64 percent. German: clean 3.74 percent, noisy 11.35 percent. English: clean 5.11 percent, noisy 6.71 percent. Noisy means babble at 10 dB signal-to-noise ratio plus reverb. Lower is better. These are not iPhone live conversation measurements.">
+<path class="g" d="M92 29V194M176 29V194M260 29V194M344 29V194"/>
+<text x="92" y="19" text-anchor="middle">0%</text><text x="176" y="19" text-anchor="middle">4%</text><text x="260" y="19" text-anchor="middle">8%</text><text x="344" y="19" text-anchor="middle">12%</text>
+<text class="k" x="0" y="59">Portuguese</text>
+<rect class="bar" x="92" y="36" width="74.55" height="15" rx="2"/><text x="172" y="47">3.55%</text>
+<rect class="k" x="92" y="57" width="160.44" height="15" rx="2"/><text x="258" y="68">7.64%</text>
+<text class="k" x="0" y="117">German</text>
+<rect class="bar" x="92" y="94" width="78.54" height="15" rx="2"/><text x="177" y="105">3.74%</text>
+<rect class="k" x="92" y="115" width="238.35" height="15" rx="2"/><text x="337" y="126">11.35%</text>
+<text class="k" x="0" y="175">English</text>
+<rect class="bar" x="92" y="152" width="107.31" height="15" rx="2"/><text x="206" y="163">5.11%</text>
+<rect class="k" x="92" y="173" width="140.91" height="15" rx="2"/><text x="239" y="184">6.71%</text>
+<rect class="bar" x="92" y="210" width="10" height="10" rx="2"/><text x="108" y="219">Clean</text>
+<rect class="k" x="170" y="210" width="10" height="10" rx="2"/><text x="186" y="219">Noisy · 10 dB SNR + reverb</text>
+</svg>
+<figcaption><b>Fig. 7.</b> Parakeet Ultra ANE word error rates. Source: R2 benchmark, 22 November 2026, U-ANE column. Measured on a Mac mini M4 with the Neural Engine and whole utterances, using FluidAudio 0.18.4. This is the same model, but it is not a phone measurement of a live conversation. Spanish, French and Italian were not measured by us.</figcaption>
+</figure>
+<p>A separate, small test used synthetic speech with mixed languages. In <b>29 of 37 checks</b> the expected English word was present in the recognized text. The test checks that the word is present, not where it stands. It is indicative only. Names and loanwords can be wrong.</p>
+
+<h2 id="limits"><small>8 Limits</small>The captions remain a reading aid</h2>
+<ul>
+<li><b>Hardware.</b> iPhone only, with iOS 26 or later. It needs a recent iPhone. Development and device measurements used one iPhone 18 Pro; other iPhones have not been measured by us.</li>
+<li><b>Setup.</b> First start needs a network connection and several minutes. New translation pairs need a download. An update can trigger model preparation again.</li>
+<li><b>Accuracy.</b> There are six supported languages. In the Mac test, noise raised word error rate from 3.55% to 7.64% for Portuguese, 3.74% to 11.35% for German, and 5.11% to 6.71% for English. Names and loanwords can be wrong.</li>
+<li><b>Speakers.</b> Legenda does not say who is speaking.</li>
+<li><b>Translation.</b> It works on finalized caption lines, not word by word, so it trails the captions.</li>
+<li><b>Heat and battery.</b> The Neural Engine works throughout listening. The phone gets warm and uses battery. The author's iPhone 18 Pro field logs showed the thermal state “serious” in long sessions; the app then decodes less often. Running memory use was about 1.3 GB on that device.</li>
+<li><b>Use.</b> Captions are a reading aid, not a certified record. Tell the people at the table that the phone is captioning them.</li>
+<li><b>Maintenance.</b> One person builds it.</li>
+</ul>
+
+<h2 id="status"><small>9 Status</small>Legenda is in private beta</h2>
+<p>Legenda is in private beta on TestFlight. It is not on the App Store yet.</p>
+</main>
+<footer>Built and maintained by Johannes · © 2026 Legenda</footer>
+</body>
+</html>
