@@ -91,7 +91,7 @@ footer{margin-top:2.5rem;padding-top:.8rem;border-top:1px solid var(--rule);font
 <dt>Status</dt><dd>Version 1.0, in preparation for the App Store</dd>
 </dl>
 <nav aria-label="Contents">
-<a href="#premise">1 Premise</a><a href="#captions">2 Live transcription</a><a href="#history">3 Earlier lines</a><a href="#notes">4 Transcript</a><a href="#offline">5 On device</a><a href="#control">6 Sharing</a><a href="#languages">7 Six languages</a><a href="#limits">8 Reading aid</a><a href="#status">9 Status</a>
+<a href="#premise">1 Premise</a><a href="#captions">2 Live transcription</a><a href="#history">3 Earlier lines</a><a href="#notes">4 Transcript</a><a href="#offline">5 On device</a><a href="#control">6 Sharing</a><a href="#languages">7 Six languages</a><a href="#model">8 Method</a><a href="#limits">9 Reading aid</a><a href="#status">10 Status</a>
 </nav>
 
 <h2 id="premise"><small>1 Premise</small>A live transcript keeps speech readable</h2>
@@ -229,7 +229,24 @@ footer{margin-top:2.5rem;padding-top:.8rem;border-top:1px solid var(--rule);font
 </figure>
 <p>A separate, small test used synthetic speech with mixed languages. In <b>29 of 37 checks</b> the expected English word was present in the recognized text. The test checks that the word is present, not where it stands. It is indicative only. Names and loanwords can be wrong.</p>
 
-<h2 id="limits"><small>8 Limits</small>Legendas is a reading aid</h2>
+<h2 id="model"><small>8 Method</small>The speech model was chosen by measurement</h2>
+<p>The first choice came from desk research, and it was wrong. Six candidates looked suitable on paper: Whisper large-v3-turbo (WhisperKit), Apple SpeechTranscriber, NVIDIA Parakeet Ultra, NVIDIA Nemotron Unified 0.6B, NVIDIA Nemotron 3.5 ASR Streaming Multilingual 0.6B and Voxtral Mini 4B Realtime. Nemotron 3.5 streaming was picked first: it is a true streaming model, it detects the language itself, and its vendor reports low error rates. In a first test with synthetic speech it worked only when the app restarted it at every pause; without restarts it dropped words at each change of language and then stalled. On the phone its first preparation did not finish within four minutes.</p>
+<p>So the candidates were measured on real speech, and four of them completed the benchmark: FLEURS read speech, 100 utterances each in Brazilian Portuguese, German and US English, clean and with babble noise at 10 dB SNR plus reverberation, plus a small synthetic test with English words inside Portuguese and German. Each model saw the same audio and the same scorer, on a Mac mini M4.</p>
+<div class="scroll" tabindex="0"><table>
+<thead><tr><th scope="col">Model</th><th scope="col">Clean WER pt / de / en</th><th scope="col">Noisy WER pt / de / en</th><th scope="col">English words</th><th scope="col">Speed</th></tr></thead>
+<tbody>
+<tr><th scope="row">Parakeet Ultra</th><td>3.6 / 3.7 / 5.1</td><td>7.6 / 11.3 / 6.7</td><td>29 of 37</td><td>149</td></tr>
+<tr><th scope="row">Nemotron Unified 0.6B</th><td>4.8 / 4.7 / 6.2</td><td>10.5 / 25.1 / 7.6</td><td>24 of 37</td><td>20</td></tr>
+<tr><th scope="row">Apple SpeechTranscriber</th><td>6.5 / 5.5 / 8.4</td><td>11.0 / 21.8 / 14.5</td><td>22 of 37</td><td>60</td></tr>
+<tr><th scope="row">Nemotron 3.5 streaming</th><td>8.5 / 10.2 / 11.2</td><td>17.3 / 26.1 / 23.6</td><td>21 of 37</td><td>9</td></tr>
+</tbody></table></div>
+<p class="cap"><b>Table 5.</b> Word error rate in percent, lower is better. Speed is seconds of audio per second of compute (median), higher is better. Apple SpeechTranscriber was given the correct language; the others detected it. Parakeet, Nemotron Unified and Apple saw whole utterances; the streaming model did not. Mac mini M4, 21 November 2026.</p>
+<p>On every column of Table 5 the first pick came last and Parakeet Ultra came first. Apple SpeechTranscriber has a further limit: it listens for one language per session, so speech in another language comes out as wrong words. The app used it for some builds to show captions while Parakeet loaded, and then dropped it.</p>
+<p>A second round on the same Mac asked two questions. Should the phone use the smaller Parakeet Redux? Redux needs about 65 % less storage and prepares faster from a cold start, but it was less accurate (German in noise 17.1 % against 11.4 %) and decoded more slowly on the Neural Engine, so Parakeet Ultra stayed. Is the GPU a faster alternative to the Neural Engine? Not on the Mac: the GPU took about eight times longer per 15-second window (573 ms against 68 ms), and the measured CPU, GPU and Neural Engine power together was about 2.5 times higher while decoding. On the iPhone, the first GPU decode of 0.4 seconds of audio was still running after 5.4 seconds. The GPU path was removed after that, and the app uses the Neural Engine only.</p>
+<p>Not finished: Whisper large-v3-turbo, Whisper large-v3 and Cohere Transcribe. Their runs were stopped because free disk space on the test machine became critically low, so their accuracy here is unmeasured. Voxtral Mini 4B Realtime was not run: no tested iPhone deployment existed, and it needs about 2.3 GB at 4-bit.</p>
+<p>The lesson behind the method: pick a speech model from a word error rate on real speech in the target languages, not from desk research or clean synthetic clips.</p>
+
+<h2 id="limits"><small>9 Limits</small>Legendas is a reading aid</h2>
 <ul>
 <li><b>Hardware.</b> iPhone only, with iOS 26 or later. Tested on one chip so far.<sup><a href="#fn1">1</a></sup></li>
 <li><b>Setup.</b> First start needs a network connection and several minutes. New translation pairs need a download. An update can trigger model preparation again.</li>
@@ -241,7 +258,7 @@ footer{margin-top:2.5rem;padding-top:.8rem;border-top:1px solid var(--rule);font
 <li><b>Maintenance.</b> One person builds it.</li>
 </ul>
 
-<h2 id="status"><small>9 Status</small>Version 1.0 is on its way to the App Store</h2>
+<h2 id="status"><small>10 Status</small>Version 1.0 is on its way to the App Store</h2>
 <p>Version 1.0 is in preparation for the App Store. This page will link to it when it is available.</p>
 <p class="cap" id="fn1">1. On a physical iPhone, Legendas has so far been tested only with Apple's latest A-series chip, the A20 Pro. All phone measurements on this page come from one phone with that chip. Other iPhone chips have not been measured.</p>
 </main>
