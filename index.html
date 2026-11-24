@@ -88,7 +88,7 @@ footer{margin-top:2.5rem;padding-top:.8rem;border-top:1px solid var(--rule);font
 <dt>Input</dt><dd>The iPhone microphone</dd>
 <dt>Output</dt><dd>Live captions, optional translation, plain-text transcript</dd>
 <dt>Network</dt><dd>Needed for setup and new translation pairs; offline afterwards</dd>
-<dt>Status</dt><dd>Version 1.0, in preparation for the App Store</dd>
+<dt>Status</dt><dd>Version 1.0.0, submitted to the App Store, waiting for Apple's review. Background listening is in testing and comes with a later update.</dd>
 </dl>
 <nav aria-label="Contents">
 <a href="#premise">1 Premise</a><a href="#captions">2 Live transcription</a><a href="#history">3 Earlier lines</a><a href="#notes">4 Transcript</a><a href="#offline">5 On device</a><a href="#control">6 Sharing</a><a href="#languages">7 Six languages</a><a href="#model">8 Method</a><a href="#limits">9 Reading aid</a><a href="#status">10 Status</a>
@@ -112,7 +112,7 @@ footer{margin-top:2.5rem;padding-top:.8rem;border-top:1px solid var(--rule);font
 <p>Room: people talking</p>
 <i>↓ sound enters</i>
 <div class="device" role="group" aria-labelledby="device-title"><p id="device-title">iPhone · processing after setup</p>
-<div><span>Microphone</span></div><i>↓ audio in memory</i>
+<div><span>Microphone</span></div><i>↓ audio · temporary buffering if needed</i>
 <div><span>Voice detection · Silero VAD</span></div><i>↓ speech</i>
 <div><span>Speech model · Parakeet on the Neural Engine</span></div><i>↓ text</i>
 <div><span>Captions</span></div><i>↓ optional</i>
@@ -128,6 +128,7 @@ footer{margin-top:2.5rem;padding-top:.8rem;border-top:1px solid var(--rule);font
 <h2 id="captions"><small>2 Claim 1</small>Speech becomes text while it is spoken</h2>
 <p>The phone lies on the table and listens through its microphone. Captions show what is said. Turn on <b>Translate</b> to split the screen: captions above, translation below in yellow. One menu selects the target language.</p>
 <p>Translation works on finalized caption lines. A line ends at a pause or at a length limit, so it can end in the middle of a sentence. The translation therefore trails the caption. It can also wait for a language download or for earlier lines. A line already in the target language appears unchanged. The screen stays awake while the app listens.</p>
+<p>Listening continues when you leave the app or lock the screen. The app transcribes in the background when iOS permits it. If iOS refuses access to the Neural Engine, audio stays on the phone. The app tries to transcribe it when you return. Pause stops the microphone immediately. The app then tries to finish the buffered audio. If processing is blocked or fails, the audio stays until processing succeeds or the app process closes. You can also delete the buffered audio by confirming Clear. After an interruption such as a call, listening resumes if iOS allows it and you have not paused. Background listening is in testing and comes with a later update; see <a href="#status">Status</a>.</p>
 <figure>
 <div class="shots" tabindex="0" role="group" aria-label="Caption and translation screenshots, scroll sideways">
 <a href="images/captions-portrait.webp"><img src="images/captions-portrait.webp" width="540" height="1174" loading="lazy" alt="Portrait captions in Portuguese, English and German on black, with Pause, Share, Clear and Translate controls below"><span>(a) Captions</span></a>
@@ -139,13 +140,13 @@ footer{margin-top:2.5rem;padding-top:.8rem;border-top:1px solid var(--rule);font
 <p>In the author's field logs from the phone used for development, a recognition pass took about <b>0.2 to 0.3 seconds</b>.<sup><a href="#fn1">1</a></sup> Captions updated about every <b>1.5 seconds</b>. A pass time measures recognition work, not the delay from speaking a word to seeing it.</p>
 
 <h2 id="history"><small>3 Claim 2</small>Earlier lines stay within reach</h2>
-<p>Scroll up to read again what was said a minute ago. New lines do not pull you back while you read older captions. Tap <b>Live</b>, or scroll to the bottom, to return to the live line. Each pane scrolls on its own.</p>
+<p>Captions follow the newest line. Only dragging away from the bottom stops following. Scroll up to read again what was said a minute ago. New lines do not pull you back while you read older captions. Tap <b>Live</b>, or scroll back to the bottom, to follow the newest line again. Each pane scrolls on its own.</p>
 <div class="scroll" tabindex="0"><table>
 <thead><tr><th scope="col">Your action</th><th scope="col">What the view does</th></tr></thead>
 <tbody>
-<tr><th scope="row">Read older captions</th><td>Keeps your place as new captions arrive</td></tr>
+<tr><th scope="row">Drag away from the bottom to read older captions</th><td>Stops following and keeps your place as new captions arrive</td></tr>
 <tr><th scope="row">Read older translation</th><td>Scrolls independently of the captions</td></tr>
-<tr><th scope="row">Return to Live</th><td>Follows the newest line again</td></tr>
+<tr><th scope="row">Tap Live or scroll back to the bottom</th><td>Follows the newest line again</td></tr>
 </tbody></table></div>
 <p class="cap"><b>Table 2.</b> The scroll rule is the same in portrait and landscape. Display history is limited to the most recent 200 caption lines; the export has a separate limit.</p>
 <figure>
@@ -180,13 +181,15 @@ footer{margin-top:2.5rem;padding-top:.8rem;border-top:1px solid var(--rule);font
 <tr><th scope="row">First preparation</th><td>1 minute 50 seconds and 5 minutes 10 seconds</td></tr>
 <tr><th scope="row">Later starts</th><td>About 4 seconds</td></tr>
 <tr><th scope="row">Preparation after an update</th><td>1 minute 39 seconds in one observation</td></tr>
+<tr><th scope="row">Prepared model reused after later updates</th><td>Cache hits of 0.2 seconds after build 20 to 21 and 0.1 seconds after build 21 to 22</td></tr>
 </tbody></table></div>
-<p class="cap"><b>Table 3.</b> Observations from the author's field logs.<sup><a href="#fn1">1</a></sup> Preparation is roughly 2 to 5 minutes, separate from the download. An app update can require preparation again. These are observations, not timing guarantees.</p>
+<p class="cap"><b>Table 3.</b> Observations from the author's field logs on one iPhone.<sup><a href="#fn1">1</a></sup> Preparation is roughly 2 to 5 minutes, separate from the download. An update can require model preparation again. Later updates kept the prepared model. Cache-hit times measure model loading, not the full app start. These are observations, not timing guarantees.</p>
 
 <h2 id="control"><small>6 Claim 5</small>You decide what leaves the phone</h2>
 <p>There is no account, no sign-in and no server of ours. The app has no analytics or crash-reporting SDK. Its own network code fetches model files and setup metadata. It does not upload the conversation.</p>
-<p>Audio is processed in memory and is not saved. The transcript also lives in memory. It is lost when the app process closes unless you have shared or copied it elsewhere. Switching away from the app is not the same as closing its process.</p>
-<p>One exception is explicit. A hidden diagnostics panel has the action <b>Export log (includes captions)</b>. It writes a text file with diagnostic events and caption text to the app's temporary storage, and opens the share sheet for it. This happens only when you tap it. The file can remain in temporary storage afterwards, and Clear does not erase the diagnostic log. The app never saves a session by itself.</p>
+<p>Audio is processed on the phone. Audio waiting for transcription is held in memory or in unlinked temporary files. Those files have no name on disk and are deleted as they are consumed or when the app process closes. Pause stops the microphone immediately. The app then tries to finish the buffered audio. If processing is blocked or fails, the audio stays until processing succeeds or the app process closes. You can also delete the buffered audio by confirming Clear. The <a href="privacy.html">privacy policy</a> gives the storage limits.</p>
+<p>The transcript lives in memory. It is lost when the app process closes unless you have shared or copied it elsewhere. Switching away from the app is not the same as closing its process.</p>
+<p>A hidden diagnostics panel has the action <b>Export log (includes captions)</b>. It writes a text file with diagnostic events and caption text to the app's temporary storage, and opens the share sheet for it. This happens only when you tap it. The file can remain in temporary storage afterwards, and Clear does not erase the diagnostic log. The app never saves a session by itself.</p>
 <p>Pause and continue use one button. The Clear button empties the captions and the translation after you confirm. Sharing the transcript, copying it, and exporting a diagnostic log are your actions. Tell the people at the table that your phone is captioning the conversation.</p>
 <figure>
 <div class="shots single">
@@ -243,13 +246,14 @@ footer{margin-top:2.5rem;padding-top:.8rem;border-top:1px solid var(--rule);font
 <p class="cap"><b>Table 5.</b> Word error rate in percent, lower is better. Speed is seconds of audio per second of compute (median), higher is better. Apple SpeechTranscriber was given the correct language; the others detected it. Parakeet, Nemotron Unified and Apple saw whole utterances; the streaming model did not. Mac mini M4, 21 November 2026.</p>
 <p>On every column of Table 5 the first pick came last and Parakeet Ultra came first. Apple SpeechTranscriber has a further limit: it listens for one language per session, so speech in another language comes out as wrong words. The app used it for some builds to show captions while Parakeet loaded, and then dropped it.</p>
 <p>A second round on the same Mac asked two questions. Should the phone use the smaller Parakeet Redux? Redux needs about 65 % less storage and prepares faster from a cold start, but it was less accurate (German in noise 17.1 % against 11.4 %) and decoded more slowly on the Neural Engine, so Parakeet Ultra stayed. Is the GPU a faster alternative to the Neural Engine? Not on the Mac: the GPU took about eight times longer per 15-second window (573 ms against 68 ms), and the measured CPU, GPU and Neural Engine power together was about 2.5 times higher while decoding. On the iPhone, the first GPU decode of 0.4 seconds of audio was still running after 5.4 seconds. The GPU path was removed after that, and the app uses the Neural Engine only.</p>
+<p>An Apple Core AI (iOS 27) version was also tested on the phone as an alternative runtime. It used a community port of Parakeet TDT 0.6B v3, not Ultra. The first load took 46.7 seconds; later loads took about 0.8 seconds. After an app update it compiled again in 56.5 seconds, while Core ML kept its cache and loaded in 0.1 seconds. The app therefore stays on Core ML.</p>
 <p>Not finished: Whisper large-v3-turbo, Whisper large-v3 and Cohere Transcribe. Their runs were stopped because free disk space on the test machine became critically low, so their accuracy here is unmeasured. Voxtral Mini 4B Realtime was not run: no tested iPhone deployment existed, and it needs about 2.3 GB at 4-bit.</p>
 <p>The lesson behind the method: pick a speech model from a word error rate on real speech in the target languages, not from desk research or clean synthetic clips.</p>
 
 <h2 id="limits"><small>9 Limits</small>Legendas is a reading aid</h2>
 <ul>
 <li><b>Hardware.</b> iPhone only, with iOS 26 or later. Tested on one chip so far.<sup><a href="#fn1">1</a></sup></li>
-<li><b>Setup.</b> First start needs a network connection and several minutes. New translation pairs need a download. An update can trigger model preparation again.</li>
+<li><b>Setup.</b> First start needs a network connection and several minutes. New translation pairs need a download. An update can require model preparation again.</li>
 <li><b>Accuracy.</b> There are six supported languages. In the Mac test, noise raised word error rate from 3.55% to 7.64% for Portuguese, 3.74% to 11.35% for German, and 5.11% to 6.71% for English. Names and loanwords can be wrong.</li>
 <li><b>Speakers.</b> Legendas does not say who is speaking.</li>
 <li><b>Translation.</b> It works on finalized caption lines, not word by word, so it trails the captions.</li>
@@ -258,8 +262,9 @@ footer{margin-top:2.5rem;padding-top:.8rem;border-top:1px solid var(--rule);font
 <li><b>Maintenance.</b> One person builds it.</li>
 </ul>
 
-<h2 id="status"><small>10 Status</small>Version 1.0 is on its way to the App Store</h2>
-<p>Version 1.0 is in preparation for the App Store. This page will link to it when it is available.</p>
+<h2 id="status"><small>10 Status</small>Version 1.0.0 is waiting for review</h2>
+<p>Version 1.0.0 is submitted to the App Store, waiting for Apple's review. This page will link to it when it is available.</p>
+<p>Background listening is in testing and comes with a later update. The build submitted for review does not include it.</p>
 <p class="cap" id="fn1">1. On a physical iPhone, Legendas has so far been tested only with Apple's latest A-series chip, the A20 Pro. All phone measurements on this page come from one phone with that chip. Other iPhone chips have not been measured.</p>
 </main>
 <footer>Built and maintained by Johannes · © 2026 Legendas · <a href="privacy.html">Privacy</a> · <a href="support.html">Support</a></footer>

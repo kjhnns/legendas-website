@@ -45,14 +45,15 @@ ol{padding-left:1.2rem;margin:.5rem 0}
 </header>
 <main>
 <h1>Legendas: privacy policy</h1>
-<p class="by">Last updated 22 November 2026. Applies to the Legendas iPhone app.</p>
+<p class="by">Last updated 24 November 2026. Applies to the Legendas iPhone app.</p>
 <p>Legendas does not upload your audio or your captions by itself. You can share or copy the transcript, or export a diagnostic log that contains caption text. The developer runs no server for this app. There is no account, no analytics, no advertising and no tracking. Speech recognition and translation run on your iPhone. Section 4 describes the network requests.</p>
 
 <h2><small>1 About</small>Who runs this app</h2>
 <p>Legendas is a personal project of Johannes Klumpe, Zurich, Switzerland.</p>
 
 <h2><small>2 Audio</small>Microphone</h2>
-<p>The app uses the microphone only while it listens. Audio is processed in memory on the phone. It is not saved and not sent anywhere.</p>
+<p>The app uses the microphone only while it listens. Audio is processed on the phone and is not sent anywhere.</p>
+<p>Listening continues when you leave the app or lock the screen. The microphone stays on, with the iOS recording indicator. The app transcribes in the background when iOS permits it. If iOS refuses access to the Neural Engine, audio stays on the phone. The app tries to transcribe it when you return. The audio buffer holds up to 30 seconds in memory plus up to 512 MiB in unlinked temporary files. Each file's name is removed before audio is written. The files are deleted as their audio is consumed or when the app process closes. Pause stops the microphone immediately. The app then tries to finish the buffered audio. If processing is blocked or fails, the audio stays until processing succeeds or the app process closes. You can also delete the buffered audio by confirming Clear. Background listening is in testing and comes with a later update. The version 1.0.0 build submitted for review does not include it.</p>
 
 <h2><small>3 Text</small>Captions and transcript</h2>
 <p>Captions and the transcript exist in the app's memory. The app does not save a session. The live transcript is lost when the app process closes.</p>

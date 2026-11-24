@@ -45,7 +45,7 @@ ol{padding-left:1.2rem;margin:.5rem 0}
 </header>
 <main>
 <h1>Legendas: support</h1>
-<p class="by">Last updated 22 November 2026.</p>
+<p class="by">Last updated 24 November 2026.</p>
 <p>Your iPhone writes down what is said around it, while it is said. A translation appears below when you want one. Speech recognition and translation run on the phone.</p>
 
 <h2><small>1 Before you start</small>Requirements</h2>
@@ -69,7 +69,11 @@ ol{padding-left:1.2rem;margin:.5rem 0}
 <p>Preparation can take several minutes, especially for the encoder. Keep Legendas open to finish setup. The phone can get warm during this work.</p>
 
 <h2><small>Common questions</small>Why does the app prepare the model again after an update?</h2>
-<p>An update can require preparation again. The app may show <b>Optimizing the speech model for this update</b>. Complete downloaded models are reused.</p>
+<p>An update can require model preparation again. The app may show <b>Optimizing the speech model for this update</b>. Complete downloaded models are reused. One earlier update needed 1 minute 39 seconds of preparation. Later updates kept the prepared model: cache hits took 0.2 seconds after build 20 to 21 and 0.1 seconds after build 21 to 22 on one iPhone. These are model-loading observations, not guarantees of app start time.</p>
+
+<h2><small>Common questions</small>Does it keep listening when I lock the phone?</h2>
+<p>Background listening is in testing and comes with a later update. Version 1.0.0 is submitted to the App Store, waiting for Apple's review. The build in review does not include this feature.</p>
+<p>Listening continues when you leave the app or lock the screen, with the iOS recording indicator. The app transcribes in the background when iOS permits it. If iOS refuses access to the Neural Engine, audio stays on the phone. The app tries to transcribe it when you return. Pause stops the microphone immediately. The app then tries to finish the buffered audio. If processing is blocked or fails, the audio stays until processing succeeds or the app process closes. You can also delete the buffered audio by confirming Clear. After an interruption such as a call, listening resumes if iOS allows it and you have not paused. If it stays paused, tap the play button to continue.</p>
 
 <h2><small>Common questions</small>Why do no captions appear?</h2>
 <p>Allow microphone access for Legendas in iOS Settings. If the app shows <b>Paused</b>, tap the play button to continue. Speak closer to the phone in one of the six supported languages listed below.</p>
@@ -78,7 +82,7 @@ ol{padding-left:1.2rem;margin:.5rem 0}
 <p>Tap <b>Translate</b> to show translation below the captions. Tap the target language name above the translation to choose another target language. iOS downloads a language pair the first time you need it if it is not already installed.</p>
 
 <h2><small>Common questions</small>How do I read earlier lines and return to Live?</h2>
-<p>Scroll up to read earlier captions; new captions keep your reading position. Tap <b>Live</b> or scroll to the bottom to follow new captions again. Translation scrolls independently and has its own <b>Live translation</b> button.</p>
+<p>Captions follow the newest line until you drag away from the bottom. Scroll up to read earlier captions; new captions keep your reading position. Tap <b>Live</b> or scroll back to the bottom to follow new captions again. Translation scrolls independently and has its own <b>Live translation</b> button.</p>
 
 <h2><small>Common questions</small>How do I share, copy or clear the transcript?</h2>
 <p>Open the Share menu and choose <b>Share transcript</b> or <b>Copy transcript</b>. The transcript contains captions, not the translation. Tap the trash button, labelled <b>Clear</b>, then confirm <b>Clear</b> in <b>Clear transcript and translation?</b> to clear both.</p>
