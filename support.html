@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Legendas: support</title>
-<meta name="description" content="Help with Legendas for iPhone: setup, captions, translation, sharing, supported languages, offline use and contact details.">
+<meta name="description" content="Help with Legendas for iPhone and iPad: setup, captions, translation, sharing, supported languages, offline use and contact details.">
 <link rel="canonical" href="https://legendas.johannesklumpe.com/support.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23fcfcfa'/%3E%3Cpath d='M6 13v6m5-11v16m5-20v24m5-20v16m5-11v6' fill='none' stroke='%231b1b19' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
 <style>
@@ -50,7 +50,7 @@ ol{padding-left:1.2rem;margin:.5rem 0}
 
 <h2><small>1 Before you start</small>Requirements</h2>
 <dl class="facts">
-<dt>Device</dt><dd>iPhone with iOS 26 or later</dd>
+<dt>Device</dt><dd>iPhone with iOS 26 or later, iPad with iPadOS 26 or later</dd>
 <dt>Download</dt><dd>A network connection and space for about 630 MB of speech model files, plus about 2 MB for voice detection. The prepared model and translation language files need more space.</dd>
 <dt>Preparation</dt><dd>A few minutes to prepare the speech model on first start</dd>
 <dt>Tested hardware</dt><dd>Tested so far only on Apple's latest A-series chip, the A20 Pro</dd>
@@ -72,7 +72,7 @@ ol{padding-left:1.2rem;margin:.5rem 0}
 <p>An update can require model preparation again. The app may show <b>Optimizing the speech model for this update</b>. Complete downloaded models are reused. One earlier update needed 1 minute 39 seconds of preparation. Later updates kept the prepared model: cache hits took 0.2 seconds after build 20 to 21 and 0.1 seconds after build 21 to 22 on one iPhone. These are model-loading observations, not guarantees of app start time.</p>
 
 <h2><small>Common questions</small>Does it keep listening when I lock the phone?</h2>
-<p>Background listening is included in version 1.0.0 on the <a href="https://apps.apple.com/app/id6837731941">App Store</a>.</p>
+<p>Background listening is included since version 1.0.0 on the <a href="https://apps.apple.com/app/id6837731941">App Store</a>. Version 1.1.0 adds iPad.</p>
 <p>Listening continues when you leave the app or lock the screen, with the iOS recording indicator. The app transcribes in the background when iOS permits it. If iOS refuses access to the Neural Engine, audio stays on the phone. The app tries to transcribe it when you return. Pause stops the microphone immediately. The app then tries to finish the buffered audio. If processing is blocked or fails, the audio stays until processing succeeds or the app process closes. You can also delete the buffered audio by confirming Clear. After an interruption such as a call, listening resumes if iOS allows it and you have not paused. If it stays paused, tap the play button to continue.</p>
 
 <h2><small>Common questions</small>Why do no captions appear?</h2>
